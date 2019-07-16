@@ -1,5 +1,5 @@
 // To regenerate ./src/main/gen/dev/blachut/svelte/lang/_SvelteLexer.java, execute the following
-// java -jar jflex-1.7.0-2.jar -d ./src/main/gen/dev/blachut/svelte/lang/ --skel ./idea-flex.skeleton ./src/main/java/dev/blachut/svelte/lang/Svelte.flex
+// java -jar jflex-1.7.0-2.jar -d ./src/main/gen/dev/blachut/svelte/lang/ --skel ./idea-flex.skeleton ./src/main/java/dev/blachut/svelte/lang/Svelte.flex --nobak
 
 package dev.blachut.svelte.lang;
 
@@ -103,6 +103,8 @@ WHITE_SPACE=\s+
 <TAG_STRING> {
   "'"                         { if (quote == '\'') yybegin(HTML_TAG); return HTML_FRAGMENT; }
   "\""                        { if (quote == '"') yybegin(HTML_TAG); return HTML_FRAGMENT; }
+  "{"                         { yybegin(SVELTE_ATTR); return START_MUSTACHE; }
+  "}"                         { if (leftBraceCount == 0) { yybegin(YYINITIAL); return END_MUSTACHE; } else { leftBraceCount -= 1; return CODE_FRAGMENT; } }
 }
 
 [^]                           { return HTML_FRAGMENT; }
