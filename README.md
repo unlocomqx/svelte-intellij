@@ -20,14 +20,14 @@ Support for <a href="https://svelte.dev/">Svelte</a> in your IDE of choice. Work
     <li>Typing assistance</li>
     <li>Partial completion suggestions</li>
     <li>Navigation from components to their definition</li>
+    <li>Component auto import</li>
 </ul>
 
 <h2>Known issues</h2>
 
 <ul>
-    <li>Component imports are marked as unused</li>
     <li>$ subscriptions aren't recognised properly</li>
-    <li>Props completion and validation isn't provided</li>
+    <li>Props validation isn't provided</li>
     <li>Directives are treated as plain attributes</li>
     <li>...</li>
 </ul>
