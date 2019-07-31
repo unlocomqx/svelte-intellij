@@ -99,4 +99,8 @@
         <multiHostInjector implementation="dev.blachut.svelte.lang.SvelteCodeMultiHostInjector"/>
     </extensions>
 
+    <extensions defaultExtensionNs="JavaScript">
+        <moduleReferenceContributor implementation="dev.blachut.svelte.lang.codeInsight.SvelteModuleReferenceContributor"/>
+    </extensions>
+
 </idea-plugin>
